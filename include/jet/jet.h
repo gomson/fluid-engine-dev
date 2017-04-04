@@ -140,6 +140,7 @@
 #include <jet/matrix2x2.h>
 #include <jet/matrix3x3.h>
 #include <jet/matrix4x4.h>
+#include <jet/matrix_expression.h>
 #include <jet/matrix_mxn.h>
 #include <jet/mg.h>
 #include <jet/nearest_neighbor_query_engine2.h>
@@ -224,6 +225,7 @@
 #include <jet/vector2.h>
 #include <jet/vector3.h>
 #include <jet/vector4.h>
+#include <jet/vector_expression.h>
 #include <jet/vector_field2.h>
 #include <jet/vector_field3.h>
 #include <jet/vector_grid2.h>
