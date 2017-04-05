@@ -384,19 +384,11 @@ Vector3<T> operator*(const Matrix3x3<T>& a, const Vector3<T>& b);
 template <typename T>
 Matrix3x3<T> operator*(const Matrix3x3<T>& a, const Matrix3x3<T>& b);
 
-//! Returns a * b.
-template <typename T>
-Matrix3x3<T> operator*(const Matrix3x3<T>& a, const Matrix3x3<T>& b);
-
-//! Returns a * b.
-template <typename T>
-Matrix3x3<T> operator*(const Matrix3x3<T>& a, const Matrix3x3<T>& b);
-
-//! Returns a / b', where every element of matrix b' is b.
+//! Returns a' / b, where every element of matrix a' is a.
 template <typename T>
 Matrix3x3<T> operator/(const Matrix3x3<T>& a, T b);
 
-//! Returns a' / b, where every element of matrix a' is a.
+//! Returns a / b', where every element of matrix b' is b.
 template <typename T>
 Matrix3x3<T> operator/(T a, const Matrix3x3<T>& b);
 

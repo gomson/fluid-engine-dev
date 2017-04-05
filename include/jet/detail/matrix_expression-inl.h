@@ -282,6 +282,77 @@ T MatrixMul<T, E1, E2>::operator()(size_t i, size_t j) const {
     return sum;
 }
 
+// MARK: Function overloadings
+
+template <typename T, typename E>
+MatrixScalarMul<T, E> operator-(const MatrixExpression<T, E>& a) {
+    return MatrixScalarMul<T, E>(a(), T(-1));
+}
+
+template <typename T, typename E1, typename E2>
+MatrixAdd<T, E1, E2> operator+(const MatrixExpression<T, E1>& a,
+                               const MatrixExpression<T, E2>& b) {
+    return MatrixAdd<T, E1, E2>(a(), b());
+}
+
+template <typename T, typename E>
+MatrixScalarAdd<T, E> operator+(const MatrixExpression<T, E>& a, T b) {
+    return MatrixScalarAdd<T, E>(a(), b);
+}
+
+template <typename T, typename E>
+MatrixScalarAdd<T, E> operator+(T a, const MatrixExpression<T, E>& b) {
+    return MatrixScalarAdd<T, E>(b(), a);
+}
+
+template <typename T, typename E1, typename E2>
+MatrixSub<T, E1, E2> operator-(const MatrixExpression<T, E1>& a,
+                               const MatrixExpression<T, E2>& b) {
+    return MatrixSub<T, E1, E2>(a(), b());
+}
+
+template <typename T, typename E>
+MatrixScalarSub<T, E> operator-(const MatrixExpression<T, E>& a, T b) {
+    return MatrixScalarSub<T, E>(a(), b);
+}
+
+template <typename T, typename E>
+MatrixScalarRSub<T, E> operator-(T a, const MatrixExpression<T, E>& b) {
+    return MatrixScalarRSub<T, E>(b(), a);
+}
+
+template <typename T, typename E>
+MatrixScalarMul<T, E> operator*(const MatrixExpression<T, E>& a, T b) {
+    return MatrixScalarMul<T, E>(a(), b);
+}
+
+template <typename T, typename E>
+MatrixScalarMul<T, E> operator*(T a, const MatrixExpression<T, E>& b) {
+    return MatrixScalarMul<T, E>(b(), a);
+}
+
+template <typename T, typename ME, typename VE>
+MatrixVectorMul<T, ME, VE> operator*(const MatrixExpression<T, ME>& a,
+                                     const VectorExpression<T, VE>& b) {
+    return MatrixVectorMul<T, ME, VE>(a(), b());
+}
+
+template <typename T, typename E1, typename E2>
+MatrixMul<T, E1, E2> operator*(const MatrixExpression<T, E1>& a,
+                               const MatrixExpression<T, E2>& b) {
+    return MatrixMul<T, E1, E2>(a(), b());
+}
+
+template <typename T, typename E>
+MatrixScalarDiv<T, E> operator/(const MatrixExpression<T, E>& a, T b) {
+    return MatrixScalarDiv<T, E>(a(), b);
+}
+
+template <typename T, typename E>
+MatrixScalarRDiv<T, E> operator/(T a, const MatrixExpression<T, E>& b) {
+    return MatrixScalarRDiv<T, E>(a(), b);
+}
+
 }  // namespace jet
 
 #endif  // INCLUDE_DETAIL_JET_MATRIX_EXPRESSION_INL_H_

@@ -437,11 +437,11 @@ Matrix4x4<T> operator*(const Matrix3x3<T>& a, const Matrix4x4<T>& b);
 template <typename T>
 Matrix4x4<T> operator*(const Matrix4x4<T>& a, const Matrix4x4<T>& b);
 
-//! Returns a / b', where every element of matrix b' is b.
+//! Returns a' / b, where every element of matrix a' is a.
 template <typename T>
 Matrix4x4<T> operator/(const Matrix4x4<T>& a, T b);
 
-//! Returns a' / b, where every element of matrix a' is a.
+//! Returns a / b', where every element of matrix b' is b.
 template <typename T>
 Matrix4x4<T> operator/(const T& a, const Matrix4x4<T>& b);
 

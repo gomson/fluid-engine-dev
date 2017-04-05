@@ -191,6 +191,64 @@ using MatrixScalarDiv = MatrixScalarBinaryOp<T, E, std::divides<T>>;
 template <typename T, typename E>
 using MatrixScalarRDiv = MatrixScalarBinaryOp<T, E, RDivides<T>>;
 
+// MARK: Operator overloadings
+
+//! Returns a matrix with opposite sign.
+template <typename T, typename E>
+MatrixScalarMul<T, E> operator-(const MatrixExpression<T, E>& a);
+
+//! Returns a + b (element-size).
+template <typename T, typename E1, typename E2>
+MatrixAdd<T, E1, E2> operator+(const MatrixExpression<T, E1>& a,
+                               const MatrixExpression<T, E2>& b);
+
+//! Returns a + b', where every element of matrix b' is b.
+template <typename T, typename E>
+MatrixScalarAdd<T, E> operator+(const MatrixExpression<T, E>& a, T b);
+
+//! Returns a' + b, where every element of matrix a' is a.
+template <typename T, typename E>
+MatrixScalarAdd<T, E> operator+(T a, const MatrixExpression<T, E>& b);
+
+//! Returns a - b (element-size).
+template <typename T, typename E1, typename E2>
+MatrixSub<T, E1, E2> operator-(const MatrixExpression<T, E1>& a,
+                               const MatrixExpression<T, E2>& b);
+
+//! Returns a - b', where every element of matrix b' is b.
+template <typename T, typename E>
+MatrixScalarSub<T, E> operator-(const MatrixExpression<T, E>& a, T b);
+
+//! Returns a' - b, where every element of matrix a' is a.
+template <typename T, typename E>
+MatrixScalarRSub<T, E> operator-(T a, const MatrixExpression<T, E>& b);
+
+//! Returns a * b', where every element of matrix b' is b.
+template <typename T, typename E>
+MatrixScalarMul<T, E> operator*(const MatrixExpression<T, E>& a, T b);
+
+//! Returns a' * b, where every element of matrix a' is a.
+template <typename T, typename E>
+MatrixScalarMul<T, E> operator*(T a, const MatrixExpression<T, E>& b);
+
+//! Returns a * b.
+template <typename T, typename ME, typename VE>
+MatrixVectorMul<T, ME, VE> operator*(const MatrixExpression<T, ME>& a,
+                                     const VectorExpression<T, VE>& b);
+
+//! Returns a * b.
+template <typename T, typename E1, typename E2>
+MatrixMul<T, E1, E2> operator*(const MatrixExpression<T, E1>& a,
+                               const MatrixExpression<T, E2>& b);
+
+//! Returns a' / b, where every element of matrix a' is a.
+template <typename T, typename E>
+MatrixScalarDiv<T, E> operator/(const MatrixExpression<T, E>& a, T b);
+
+//! Returns a / b', where every element of matrix b' is b.
+template <typename T, typename E>
+MatrixScalarRDiv<T, E> operator/(T a, const MatrixExpression<T, E>& b);
+
 }  // namespace jet
 
 #include "detail/matrix_expression-inl.h"

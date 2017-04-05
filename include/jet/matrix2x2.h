@@ -381,11 +381,11 @@ Vector2<T> operator*(const Matrix2x2<T>& a, const Vector2<T>& b);
 template <typename T>
 Matrix2x2<T> operator*(const Matrix2x2<T>& a, const Matrix2x2<T>& b);
 
-//! Returns a / b', where every element of matrix b' is b.
+//! Returns a' / b, where every element of matrix a' is a.
 template <typename T>
 Matrix2x2<T> operator/(const Matrix2x2<T>& a, T b);
 
-//! Returns a' / b, where every element of matrix a' is a.
+//! Returns a / b', where every element of matrix b' is b.
 template <typename T>
 Matrix2x2<T> operator/(const T& a, const Matrix2x2<T>& b);
 

@@ -42,20 +42,21 @@ class Vector<T, 4> final {
     // MARK: Constructors
 
     //! Constructs default vector (0, 0, 0, 0).
-    Vector();
+    constexpr Vector() : x(0), y(0), z(0), w(0) {}
 
-    //! Constructs vector with given parameters \p x, \p y, \p z, and \p w.
-    Vector(T x, T y, T z, T w);
+    //! Constructs vector with given parameters \p x_, \p y_, \p z_, and \p w_.
+    constexpr Vector(T x_, T y_, T z_, T w_) : x(x_), y(y_), z(z_), w(w_) {}
 
     //! Constructs vector with a 3-D vector (x, y, and z) and a scalar (w).
-    Vector(const Vector3<T>& pt, T w);
+    constexpr Vector(const Vector3<T>& v, T w_)
+        : x(v.x), y(v.y), z(v.z), w(w_) {}
 
     //! Constructs vector with initializer list.
     template <typename U>
     Vector(const std::initializer_list<U>& lst);
 
     //! Copy constructor.
-    Vector(const Vector& v);
+    constexpr Vector(const Vector& v) : x(v.x), y(v.y), z(v.z), w(v.w) {}
 
     // MARK: Basic setters
 
@@ -344,13 +345,13 @@ typedef Vector4<double> Vector4D;
 
 //! Returns float-type zero vector.
 template <>
-inline Vector4F zero<Vector4F>() {
+constexpr Vector4F zero<Vector4F>() {
     return Vector4F(0.f, 0.f, 0.f, 0.f);
 }
 
 //! Returns double-type zero vector.
 template <>
-inline Vector4D zero<Vector4D>() {
+constexpr Vector4D zero<Vector4D>() {
     return Vector4D(0.0, 0.0, 0.0, 0.0);
 }
 

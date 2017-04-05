@@ -391,48 +391,6 @@ class VectorN final : public VectorExpression<T, VectorN<T>> {
     ContainerType _elements;
 };
 
-// MARK: Global Functions
-
-template <typename T, typename E>
-VectorScalarAdd<T, E> operator+(const T& a, const VectorExpression<T, E>& b);
-
-template <typename T, typename E>
-VectorScalarAdd<T, E> operator+(const VectorExpression<T, E>& a, const T& b);
-
-template <typename T, typename E1, typename E2>
-VectorAdd<T, E1, E2> operator+(const VectorExpression<T, E1>& a,
-                               const VectorExpression<T, E2>& b);
-
-template <typename T, typename E>
-VectorScalarRSub<T, E> operator-(const T& a, const VectorExpression<T, E>& b);
-
-template <typename T, typename E>
-VectorScalarSub<T, E> operator-(const VectorExpression<T, E>& a, const T& b);
-
-template <typename T, typename E1, typename E2>
-VectorSub<T, E1, E2> operator-(const VectorExpression<T, E1>& a,
-                               const VectorExpression<T, E2>& b);
-
-template <typename T, typename E>
-VectorScalarMul<T, E> operator*(const T& a, const VectorExpression<T, E>& b);
-
-template <typename T, typename E>
-VectorScalarMul<T, E> operator*(const VectorExpression<T, E>& a, const T& b);
-
-template <typename T, typename E1, typename E2>
-VectorMul<T, E1, E2> operator*(const VectorExpression<T, E1>& a,
-                               const VectorExpression<T, E2>& b);
-
-template <typename T, typename E>
-VectorScalarRDiv<T, E> operator/(const T& a, const VectorExpression<T, E>& b);
-
-template <typename T, typename E>
-VectorScalarDiv<T, E> operator/(const VectorExpression<T, E>& a, const T& b);
-
-template <typename T, typename E1, typename E2>
-VectorDiv<T, E1, E2> operator/(const VectorExpression<T, E1>& a,
-                               const VectorExpression<T, E2>& b);
-
 //! Float-type N-D vector.
 typedef VectorN<float> VectorNF;
 
