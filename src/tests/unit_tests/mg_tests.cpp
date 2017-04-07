@@ -4,8 +4,7 @@
 // personal capacity and am not conveying any rights to any intellectual
 // property of any third parties.
 
-#include <jet/array1.h>
-#include <jet/array2.h>
+#include <jet/matrix_mxn.h>
 #include <jet/mg.h>
 
 #include <gtest/gtest.h>
@@ -14,31 +13,7 @@ using namespace jet;
 
 namespace {
 
-struct BlasType {
-    typedef Array2<double> MatrixType;
-    typedef Array1<double> VectorType;
-
-    static void set(double s, VectorType* v) { v->set(s); }
-
-    static double dot(const VectorType& a, const VectorType& b) {
-        double result = 0.0;
-        a.forEachIndex([&](size_t i) { result += a[i] * b[i]; });
-        return result;
-    }
-
-    static void residual(const MatrixType& a, const VectorType& x,
-                         const VectorType& b, VectorType* result) {
-        x.parallelForEachIndex([&](size_t i) {
-            double sum = 0.0;
-            for (size_t j = 0; j < a.width(); ++j) {
-                sum += a(j, i) * x[j];
-            }
-            (*result)[i] = b[i] - sum;
-        });
-    }
-
-    static double l2Norm(const VectorType& v) { return std::sqrt(dot(v, v)); }
-};
+typedef Blas<double, VectorND, MatrixMxND> BlasType;
 
 void relax(const typename BlasType::MatrixType& a,
            const typename BlasType::VectorType& b,
@@ -48,7 +23,7 @@ void relax(const typename BlasType::MatrixType& a,
     (void)maxTolerance;
     (void)buffer;
 
-    size_t n = a.width();
+    size_t n = a.rows();
     for (unsigned int iter = 0; iter < numberOfIterations; ++iter) {
         x->forEachIndex([&](size_t i) {
             double sum = 0.0;

@@ -8,7 +8,6 @@
 #define INCLUDE_JET_VECTOR_N_H_
 
 #include <jet/array_accessor1.h>
-#include <jet/functors.h>
 #include <jet/vector_expression.h>
 
 #include <initializer_list>
@@ -20,9 +19,10 @@ namespace jet {
 // MARK: VectorN
 
 //!
-//! \brief N-D vector class.
+//! \brief General purpose dynamically-sizedN-D vector class.
 //!
-//! This class defines N-D vector data.
+//! This class defines N-D vector data where its size can be defined
+//! dynamically.
 //!
 //! \tparam T Type of the element.
 //!

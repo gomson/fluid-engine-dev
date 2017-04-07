@@ -57,10 +57,6 @@ MgResult mgVCycle(const MgMatrix<BlasType>& A, MgParameters<BlasType> params,
 
         BlasType::residual(A[currentLevel], (*x)[currentLevel],
                            (*b)[currentLevel], &(*buffer)[currentLevel]);
-
-        // for (size_t i = 0; i < (*x)[currentLevel].size(); ++i) {
-        //     printf("%f\n", (*x)[currentLevel][i]);
-        // }
     }
 
     BlasType::residual(A[currentLevel], (*x)[currentLevel], (*b)[currentLevel],

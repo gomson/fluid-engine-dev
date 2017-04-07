@@ -8,7 +8,6 @@
 #define INCLUDE_JET_MATRIX_MXN_H_
 
 #include <jet/array2.h>
-#include <jet/functors.h>
 #include <jet/matrix_expression.h>
 #include <jet/vector_n.h>
 
@@ -218,7 +217,7 @@ class MatrixMxN final : public MatrixExpression<T, MatrixMxN<T>> {
 
     //! Returns input matrix * this matrix.
     template <typename E>
-    MatrixMul<T, MatrixMxN, E> rmul(const E& m) const;
+    MatrixMul<T, E, MatrixMxN> rmul(const E& m) const;
 
     //! Returns input matrix / this scalar.
     MatrixScalarRDiv<T, MatrixMxN> rdiv(const T& s) const;

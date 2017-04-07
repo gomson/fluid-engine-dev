@@ -154,7 +154,6 @@ bool MatrixMxN<T>::isSimilar(const MatrixExpression<T, E>& other,
     for (size_t i = 0; i < rows(); ++i) {
         for (size_t j = 0; j < cols(); ++j) {
             if (std::fabs((*this)(i, j) - e(i, j)) > tol) {
-                printf("%f\n", std::fabs((*this)(i, j) - e(i, j)));
                 return false;
             }
         }
@@ -287,8 +286,8 @@ MatrixScalarMul<T, MatrixMxN<T>> MatrixMxN<T>::rmul(const T& s) const {
 
 template <typename T>
 template <typename E>
-MatrixMul<T, MatrixMxN<T>, E> MatrixMxN<T>::rmul(const E& m) const {
-    return MatrixMul<T, MatrixMxN<T>, E>(m, *this);
+MatrixMul<T, E, MatrixMxN<T>> MatrixMxN<T>::rmul(const E& m) const {
+    return MatrixMul<T, E, MatrixMxN<T>>(m, *this);
 }
 
 template <typename T>

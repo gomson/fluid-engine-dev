@@ -47,7 +47,7 @@ void Vector<T, 3>::set(const Vector2<T>& pt, T newZ) {
 template <typename T>
 template <typename U>
 void Vector<T, 3>::set(const std::initializer_list<U>& lst) {
-    assert(lst.size() >= 3);
+    JET_ASSERT(lst.size() >= 3);
 
     auto inputElem = lst.begin();
     x = static_cast<T>(*inputElem);
@@ -212,13 +212,13 @@ void Vector<T, 3>::idiv(const Vector& v) {
 // Basic getters
 template <typename T>
 const T& Vector<T, 3>::at(size_t i) const {
-    assert(i < 3);
+    JET_ASSERT(i < 3);
     return (&x)[i];
 }
 
 template <typename T>
 T& Vector<T, 3>::at(size_t i) {
-    assert(i < 3);
+    JET_ASSERT(i < 3);
     return (&x)[i];
 }
 
@@ -337,13 +337,13 @@ bool Vector<T, 3>::isSimilar(const Vector& other, T epsilon) const {
 // Operators
 template <typename T>
 T& Vector<T, 3>::operator[](size_t i) {
-    assert(i < 3);
+    JET_ASSERT(i < 3);
     return (&x)[i];
 }
 
 template <typename T>
 const T& Vector<T, 3>::operator[](size_t i) const {
-    assert(i < 3);
+    JET_ASSERT(i < 3);
     return (&x)[i];
 }
 
