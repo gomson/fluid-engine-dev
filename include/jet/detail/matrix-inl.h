@@ -60,7 +60,7 @@ void Matrix<T, M, N>::set(
 
     auto rowIter = lst.begin();
     for (size_t i = 0; i < rows; ++i) {
-        JET_ASSERT(width == rowIter->size());
+        JET_ASSERT(cols == rowIter->size());
         auto colIter = rowIter->begin();
         for (size_t j = 0; j < cols; ++j) {
             (*this)(i, j) = *colIter;

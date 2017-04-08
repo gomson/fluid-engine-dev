@@ -249,25 +249,6 @@ T MatrixVectorMul<T, ME, VE>::operator[](size_t i) const {
     return sum;
 }
 
-template <typename T, typename ME, typename VE>
-void MatrixVectorMul<T, ME, VE>::getBatch2(size_t i, T* batch) const {
-    T sum1 = 0;
-    T sum2 = 0;
-    const size_t n = _m.cols();
-    const T* row1 = _m.data() + i * n;
-    const T* row2 = _m.data() + (i + 1) * n;
-    for (size_t j = 0; j < n; ++j) {
-        T v = _v[j];
-        sum1 += *row1 * v;
-        sum2 += *row2 * v;
-
-        ++row1;
-        ++row2;
-    }
-    batch[0] = sum1;
-    batch[1] = sum2;
-};
-
 // MARK: MatrixMul
 
 template <typename T, typename E1, typename E2>

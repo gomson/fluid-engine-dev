@@ -129,7 +129,7 @@ TEST(Parallel, Reduce) {
     sum = 0.0;
     for (int iter = 0; iter < 20; ++iter) {
         sum +=
-            parallelReduce(kZeroSize, a.size(), 0, func, std::plus<double>());
+            parallelReduce(kZeroSize, a.size(), 0.0, func, std::plus<double>());
     }
 
     JET_PRINT_INFO("parallelReduce avg. %f sec.\n",
