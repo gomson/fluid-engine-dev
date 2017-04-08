@@ -24,7 +24,7 @@ TEST(MatrixMxN, Mvm) {
     std::uniform_real_distribution<> d(0.0, 1.0);
 
     for (size_t e = 2; e < 14; ++e) {
-        size_t n = (1u << e);
+        size_t n = (kOneSize << e);
         mat.resize(n, n);
         x.resize(n);
         y.resize(n);
@@ -55,7 +55,7 @@ TEST(MatrixMxN, MvmRef) {
     std::uniform_real_distribution<> d(0.0, 1.0);
 
     for (size_t e = 2; e < 14; ++e) {
-        size_t n = (1u << e);
+        size_t n = (kOneSize << e);
         mat.resize(n, n);
         x.resize(n);
         y.resize(n);
