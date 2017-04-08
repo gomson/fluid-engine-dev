@@ -59,3 +59,5 @@ add_subdirectory(src/examples/particles2obj)
 add_subdirectory(src/examples/particles2xml)
 add_subdirectory(src/examples/smoke_sim)
 add_subdirectory(src/examples/sph_sim)
+
+add_subdirectory(src/playground)
