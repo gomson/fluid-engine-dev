@@ -16,6 +16,7 @@
 #include <tbb/parallel_reduce.h>
 #endif
 
+#include <numeric>
 #include <random>
 
 using namespace jet;

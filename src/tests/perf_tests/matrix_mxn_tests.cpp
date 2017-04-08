@@ -23,8 +23,8 @@ TEST(MatrixMxN, Mvm) {
     std::mt19937 rng{0};
     std::uniform_real_distribution<> d(0.0, 1.0);
 
-    for (int e = 2; e < 14; ++e) {
-        size_t n = (1 << e);
+    for (size_t e = 2; e < 14; ++e) {
+        size_t n = (1u << e);
         mat.resize(n, n);
         x.resize(n);
         y.resize(n);
@@ -54,8 +54,8 @@ TEST(MatrixMxN, MvmRef) {
     std::mt19937 rng{0};
     std::uniform_real_distribution<> d(0.0, 1.0);
 
-    for (int e = 2; e < 14; ++e) {
-        size_t n = (1 << e);
+    for (size_t e = 2; e < 14; ++e) {
+        size_t n = (1u << e);
         mat.resize(n, n);
         x.resize(n);
         y.resize(n);
@@ -73,7 +73,8 @@ TEST(MatrixMxN, MvmRef) {
             double *Apos2 = mat.data() + n;
             double *ypos = y.data();
 
-            parallelFor(kZeroSize, n / 2, [Apos1, Apos2, ypos, n, &x](size_t i) {
+            parallelFor(kZeroSize, n / 2, [Apos1, Apos2, ypos, n, &x](size_t hi) {
+                size_t i = 2 * hi;
                 double *Apos1_ = Apos1 + i * n;
                 double *Apos2_ = Apos2 + i * n;
                 double *ypos_ = ypos + i;

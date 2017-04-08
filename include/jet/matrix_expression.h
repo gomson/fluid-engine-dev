@@ -297,8 +297,10 @@ class MatrixVectorMul : public VectorExpression<T, MatrixVectorMul<T, ME, VE>> {
  public:
     MatrixVectorMul(const ME& m, const VE& v);
 
-    //! Size of the matrix.
+    //! Size of the vector.
     size_t size() const;
+
+    //! Returns vector element at i.
     T operator[](size_t i) const;
 
  private:

@@ -81,7 +81,7 @@ TEST(VectorN, BasicSetters) {
     EXPECT_EQ(2.0, vec3[4]);
 
     vec3.setZero();
-    for (int i = 0; i < vec3.size(); ++i) {
+    for (size_t i = 0; i < vec3.size(); ++i) {
         EXPECT_EQ(0.0, vec3[i]);
     }
 
