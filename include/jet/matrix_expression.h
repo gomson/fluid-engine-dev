@@ -19,8 +19,8 @@ namespace jet {
 //!
 //! Matrix expression is a meta type that enables template expression pattern.
 //!
-//! \tparam T - Real number type.
-//! \tparam E - Subclass type.
+//! \tparam T  Real number type.
+//! \tparam E  Subclass type.
 //!
 template <typename T, typename E>
 class MatrixExpression {
@@ -43,7 +43,7 @@ class MatrixExpression {
 //!
 //! This matrix expression represents a constant matrix.
 //!
-//! \tparam T - Real number type.
+//! \tparam T  Real number type.
 //!
 template <typename T>
 class MatrixConstant : public MatrixExpression<T, MatrixConstant<T>> {
@@ -74,7 +74,7 @@ class MatrixConstant : public MatrixExpression<T, MatrixConstant<T>> {
 //!
 //! This matrix expression represents an identity matrix.
 //!
-//! \tparam T - Real number type.
+//! \tparam T  Real number type.
 //!
 template <typename T>
 class MatrixIdentity : public MatrixExpression<T, MatrixIdentity<T>> {
@@ -106,9 +106,9 @@ class MatrixIdentity : public MatrixExpression<T, MatrixIdentity<T>> {
 //! This matrix expression represents an unary matrix operation that takes
 //! single input matrix expression.
 //!
-//! \tparam T - Real number type.
-//! \tparam E - Input expression type.
-//! \tparam Op - Unary operation.
+//! \tparam T   Real number type.
+//! \tparam E   Input expression type.
+//! \tparam Op  Unary operation.
 //!
 template <typename T, typename E, typename Op>
 class MatrixUnaryOp : public MatrixExpression<T, MatrixUnaryOp<T, E, Op>> {
@@ -139,8 +139,8 @@ class MatrixUnaryOp : public MatrixExpression<T, MatrixUnaryOp<T, E, Op>> {
 //! This matrix expression represents a diagonal matrix for given input matrix
 //! expression.
 //!
-//! \tparam T - Real number type.
-//! \tparam E - Input expression type.
+//! \tparam T  Real number type.
+//! \tparam E  Input expression type.
 //!
 template <typename T, typename E>
 class MatrixDiagonal : public MatrixExpression<T, MatrixDiagonal<T, E>> {
@@ -172,8 +172,8 @@ class MatrixDiagonal : public MatrixExpression<T, MatrixDiagonal<T, E>> {
 //! This matrix expression represents a triangular matrix for given input matrix
 //! expression.
 //!
-//! \tparam T - Real number type.
-//! \tparam E - Input expression type.
+//! \tparam T  Real number type.
+//! \tparam E  Input expression type.
 //!
 template <typename T, typename E>
 class MatrixTriangular : public MatrixExpression<T, MatrixTriangular<T, E>> {
@@ -215,10 +215,10 @@ using MatrixTypeCast = MatrixUnaryOp<T, E, TypeCast<U, T>>;
 //! This matrix expression represents a binary matrix operation that takes
 //! two input matrix expressions.
 //!
-//! \tparam T - Real number type.
-//! \tparam E1 - First input expression type.
-//! \tparam E2 - Second input expression type.
-//! \tparam Op - Binary operation.
+//! \tparam T   Real number type.
+//! \tparam E1  First input expression type.
+//! \tparam E2  Second input expression type.
+//! \tparam Op  Binary operation.
 //!
 template <typename T, typename E1, typename E2, typename Op>
 class MatrixBinaryOp
@@ -252,9 +252,9 @@ class MatrixBinaryOp
 //! This matrix expression represents a binary matrix operation that takes
 //! one input matrix expression and one scalar.
 //!
-//! \tparam T - Real number type.
-//! \tparam E - Input expression type.
-//! \tparam Op - Binary operation.
+//! \tparam T   Real number type.
+//! \tparam E   Input expression type.
+//! \tparam Op  Binary operation.
 //!
 template <typename T, typename E, typename Op>
 class MatrixScalarBinaryOp
@@ -287,7 +287,6 @@ class MatrixScalarBinaryOp
 //! This vector expression represents a matrix-vector operation that takes
 //! one input matrix expression and one vector expression.
 //!
-//! \tparam T - Real number type.
 //! \tparam T   Element value type.
 //! \tparam ME  Matrix expression.
 //! \tparam VE  Vector expression.
@@ -314,7 +313,6 @@ class MatrixVectorMul : public VectorExpression<T, MatrixVectorMul<T, ME, VE>> {
 //! This matrix expression represents a matrix-matrix operation that takes
 //! two input matrices.
 //!
-//! \tparam T - Real number type.
 //! \tparam T   Element value type.
 //! \tparam ME  Matrix expression.
 //! \tparam VE  Vector expression.

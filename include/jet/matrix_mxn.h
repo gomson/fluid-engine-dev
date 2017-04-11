@@ -310,6 +310,7 @@ class MatrixMxN final : public MatrixExpression<T, MatrixMxN<T>> {
     //! Returns inverse matrix.
     MatrixMxN inverse() const;
 
+    //! Type-casts to different value-typed matrix.
     template <typename U>
     MatrixTypeCast<U, MatrixMxN, T> castTo() const;
 

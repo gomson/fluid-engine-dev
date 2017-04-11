@@ -49,6 +49,7 @@
 #include <jet/constant_vector_field2.h>
 #include <jet/constant_vector_field3.h>
 #include <jet/constants.h>
+#include <jet/cpp_utils.h>
 #include <jet/cubic_semi_lagrangian2.h>
 #include <jet/cubic_semi_lagrangian3.h>
 #include <jet/custom_implicit_surface2.h>
@@ -140,6 +141,7 @@
 #include <jet/matrix2x2.h>
 #include <jet/matrix3x3.h>
 #include <jet/matrix4x4.h>
+#include <jet/matrix_csr.h>
 #include <jet/matrix_expression.h>
 #include <jet/matrix_mxn.h>
 #include <jet/mg.h>
